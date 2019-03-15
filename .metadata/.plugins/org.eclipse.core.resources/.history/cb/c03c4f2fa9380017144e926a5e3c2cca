@@ -1,0 +1,23 @@
+package Sometesting;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Test3 {
+	static JFrame aframe=new JFrame();
+	static JButton button1=new JButton("1");
+	static JButton button2=new JButton("2");
+  public static void main(String[] args){
+	  aframe.setBounds(40, 40, 200, 200);
+ 	 aframe.setLayout(null);
+ 	 JPanel panel1=new JPanel();
+ 	aframe.add(panel1);
+ 	aframe.add(button2);
+ 	panel1.setBounds(0, 0, 200, 100);
+ 	button2.setBounds(0, 100, 200, 100);
+ 	 aframe.setVisible(true);
+ 	 Test2 tes=new Test2();
+ 	 System.out.println(tes.A(button2,button1,panel1));
+  }
+}

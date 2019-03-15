@@ -1,0 +1,80 @@
+package Sometesting;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Test2 {
+	static JFrame aframe=new JFrame();
+	static JButton button1=new JButton("1");
+	static JButton button2=new JButton("2");
+	   static int a=0;
+         public static int A(JButton button2,JPanel panel1){
+        	 if(a==0){
+        		 Object aa=new Object();
+        		 button2.addActionListener(
+            			 new ActionListener(){
+            				 public void actionPerformed(ActionEvent ex){
+            					 a=3;
+            					 synchronized(aa) {
+           		      			  
+         		      				aa.notify();
+         		      				
+         		      				
+         		      				}
+            					
+            				 }
+            			 }
+            			 );
+        		 B(aa,panel1);
+        		 synchronized(aa) {
+       			  try{
+       				  System.out.println("svkj");
+       				aa.wait();
+       				}catch(InterruptedException ex){
+       					ex.printStackTrace();
+       				}
+       				}
+
+        	 }
+        	
+        	 return a;
+         }
+         public static void B(Object aa,JPanel panel1){
+        	
+           panel1.add(button1);
+       
+        	
+        	 button1.addActionListener(
+        			 new ActionListener(){
+        				 public void actionPerformed(ActionEvent ex){
+        					 a++;
+        		        	 synchronized(aa) {
+        		      			  
+        		      				aa.notify();
+        		      				
+        		      				
+        		      				}
+        		        	 System.out.println(Thread.currentThread().getState());
+        				 }
+        			 }
+        			 );
+        	
+
+         }
+         public static void main(String[] args){
+        	 aframe.setBounds(40, 40, 200, 200);
+        	 aframe.setLayout(null);
+        	 JPanel panel1=new JPanel();
+        	aframe.add(panel1);
+        	aframe.add(button2);
+        	panel1.setBounds(0, 0, 200, 100);
+        	button2.setBounds(0, 100, 200, 100);
+        	 aframe.setVisible(true);
+        	 System.out.println(A(button2,panel1));
+         }
+         
+}

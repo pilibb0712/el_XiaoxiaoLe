@@ -1,0 +1,11 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Panels,org.eclipse.launchbar.core.descriptorType.default\:ButtonandMouse,org.eclipse.launchbar.core.descriptorType.default\:KeyCalculation,org.eclipse.launchbar.core.descriptorType.default\:TxtField,org.eclipse.launchbar.core.descriptorType.default\:TestCheck,org.eclipse.launchbar.core.descriptorType.default\:Place,org.eclipse.launchbar.core.descriptorType.default\:Version2,org.eclipse.launchbar.core.descriptorType.default\:XiaoxiaoLe2 (1),org.eclipse.launchbar.core.descriptorType.default\:BBBBounder,org.eclipse.launchbar.core.descriptorType.default\:FormerComic,org.eclipse.launchbar.core.descriptorType.default\:StopForAwhile,org.eclipse.launchbar.core.descriptorType.default\:Refresh,org.eclipse.launchbar.core.descriptorType.default\:Beginning,org.eclipse.launchbar.core.descriptorType.default\:Game1,org.eclipse.launchbar.core.descriptorType.default\:Test3,org.eclipse.launchbar.core.descriptorType.default\:Game2,org.eclipse.launchbar.core.descriptorType.default\:Test,org.eclipse.launchbar.core.descriptorType.default\:InitializingGUI,org.eclipse.launchbar.core.descriptorType.default\:Test2,org.eclipse.launchbar.core.descriptorType.default\:Main
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:BBBBounder/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:BBBBounder/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Boundar/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Boundar/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:ButtonandMouse/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:ButtonandMouse/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Panels/activeLaunchMode=run

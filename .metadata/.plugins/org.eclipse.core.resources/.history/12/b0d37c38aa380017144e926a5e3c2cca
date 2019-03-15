@@ -1,0 +1,67 @@
+package Sometesting;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Test2 {
+	static JButton button1=new JButton("1");
+	   static int a=0;
+         public static int A(JButton button2,JPanel panel1){
+        	 if(a==0){
+        		 Object aa=new Object();
+        		 button2.addActionListener(
+            			 new ActionListener(){
+            				 public void actionPerformed(ActionEvent ex){
+            					 a=3;
+            					 synchronized(aa) {
+           		      			  
+         		      				aa.notify();
+         		      				
+         		      				
+         		      				}
+            					
+            				 }
+            			 }
+            			 );
+        		 B(aa,panel1);
+        		 synchronized(aa) {
+       			  try{
+       				 
+       				aa.wait();
+       				}catch(InterruptedException ex){
+       					ex.printStackTrace();
+       				}
+       				}
+
+        	 }
+        	
+        	 return a;
+         }
+         public static void B(Object aa,JPanel panel1){
+        	
+           panel1.add(button1);
+       
+        	
+        	 button1.addActionListener(
+        			 new ActionListener(){
+        				 public void actionPerformed(ActionEvent ex){
+        					 a++;
+        		        	 synchronized(aa) {
+        		      			  
+        		      				aa.notify();
+        		      				
+        		      				
+        		      				}
+        		        	 
+        				 }
+        			 }
+        			 );
+        
+         }
+      
+         
+}

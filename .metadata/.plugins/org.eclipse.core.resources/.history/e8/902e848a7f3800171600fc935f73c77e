@@ -1,0 +1,2149 @@
+package FinalVersion;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+public class Main {
+	  static JFrame firstframe=new JFrame();
+	  static JPanel toppanel=(JPanel)(firstframe.getContentPane());
+	  static JPanel mainpanel=new JPanel();
+	  static JPanel flowerpanel=new JPanel();
+	  
+	 static ImageIcon main=new ImageIcon("main.jpg");
+	 static ImageIcon background=new ImageIcon("10.jpg");
+	static ImageIcon flower1=new ImageIcon("f01.png");
+	static ImageIcon flower2=new ImageIcon("f02.gif");
+	static ImageIcon flower3=new ImageIcon("f03.gif");
+	static ImageIcon flower4=new ImageIcon("f04.gif");
+	static ImageIcon flower5=new ImageIcon("f05.gif");
+	static ImageIcon flower6=new ImageIcon("f06.gif");
+	static ImageIcon pass1=new ImageIcon("pp1.jpg");
+	static ImageIcon pass2=new ImageIcon("pp2.jpg");
+	static ImageIcon pass3=new ImageIcon("pp3.jpg");
+	static ImageIcon pass4=new ImageIcon("pp4.jpg");
+	static ImageIcon pass5=new ImageIcon("pp5.jpg");
+	static ImageIcon pass6=new ImageIcon("pp6.jpg");
+	static ImageIcon lose=new ImageIcon("lose.jpg");
+	static ImageIcon dead=new ImageIcon("dead.jpg");
+    static ImageIcon newgameIcon=new ImageIcon("newgame.png");
+    static ImageIcon continuegameIcon=new ImageIcon("continuegame.png");
+    static ImageIcon exitgameIcon=new ImageIcon("exit.png");
+    
+    
+   
+	
+	static JLabel mainlabel=new JLabel(main);
+	static JLabel backg=new JLabel(background);
+	static JLabel flowerlabel1=new JLabel(flower1);
+	static JLabel flowerlabel2=new JLabel(flower2);
+	static JLabel flowerlabel3=new JLabel(flower3);
+	static JLabel flowerlabel4=new JLabel(flower4);
+	static JLabel flowerlabel5=new JLabel(flower5);
+	static JLabel flowerlabel6=new JLabel(flower6);
+	static JLabel Pass1=new JLabel(pass1);
+	static JLabel Pass2=new JLabel(pass2);
+	static JLabel Pass3=new JLabel(pass3);
+	static JLabel Pass4=new JLabel(pass4);
+	static JLabel Pass5=new JLabel(pass5);
+	static JLabel Pass6=new JLabel(pass6);
+	static JLabel Lose=new JLabel(lose);
+	static JLabel Dead=new JLabel(dead);
+	
+	static JButton exit=new JButton("Exit");
+	
+	static int height=main.getIconHeight();
+    static int width=main.getIconWidth();
+    static int choice;
+	
+	static int stages=1;
+	static int steps;
+	static int targets;
+	static int scores;
+	static JTextField stage=new JTextField();
+	static JTextField step=new JTextField();
+	static JTextField score=new JTextField();
+	static JTextField target=new JTextField();
+	static void formercomic(JFrame frame0){
+		 Runnable runnable = new Runnable() {
+			 
+			  @Override
+			  public void run() {
+		 
+		 
+	 	 ImageIcon image1=new ImageIcon("c1.jpg"); 
+	 	 ImageIcon image2=new ImageIcon("c2.jpg");
+	 	 ImageIcon image3=new ImageIcon("c3.jpg"); 
+	 	 ImageIcon image4=new ImageIcon("c4.jpg");
+	 	 ImageIcon image5=new ImageIcon("c5.jpg"); 
+	  	
+	 	 int height=frame0.getHeight();
+	 	 int width=frame0.getWidth();
+	    	 JLabel label1=new JLabel(image1);
+	    	 JLabel label2=new JLabel(image2);
+	    	 JLabel label3=new JLabel(image3);
+	   	 JLabel label4=new JLabel(image4);
+	   	 JLabel label5=new JLabel(image5);
+	 	 //It is strange that we use "/" rather than "\" to tell the path
+	 	 label1.setBounds(0, 0,width,height);
+	 	 label2.setBounds(0, 0,width,height);
+	 	 label3.setBounds(0, 0,width,height);
+	 	 label4.setBounds(0, 0,width,height);
+	 	 label5.setBounds(0, 0,width,height);
+	 	 frame0.setBounds(40, 40, width, height);
+	 	
+	 	 JPanel panel0=(JPanel)frame0.getContentPane();
+	      panel0.setOpaque(false);
+	 	 //if you want to put something on the content pane(the top panel/surface)
+	      SwingUtilities.invokeLater(new Runnable() {
+
+			  @Override
+			  public void run() {
+				   frame0.getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE));
+	 	           frame0.setVisible(true);
+			  }
+		  
+	  });
+	     
+	 	
+	 	 try{
+	 		 Thread.sleep(3000);
+	 	 }catch(InterruptedException e){
+	 		 e.printStackTrace();
+	 	 }
+	 	 SwingUtilities.invokeLater(new Runnable() {
+
+			  @Override
+			  public void run() {
+				  frame0.getLayeredPane().remove(label1);
+				 	 frame0.getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE));
+				 	 frame0.setVisible(true);
+			  }
+		  
+	 });
+	 	 
+	 	 try{
+	 		 Thread.sleep(3000);
+	 	 }catch(InterruptedException e){
+	 		 e.printStackTrace();
+	 	 }
+	 	 SwingUtilities.invokeLater(new Runnable() {
+
+			  @Override
+			  public void run() {
+				   frame0.getLayeredPane().remove(label2);
+	 	 frame0.getLayeredPane().add(label3,new Integer(Integer.MIN_VALUE));
+	 	 frame0.setVisible(true);
+			  }
+		  
+	});
+	 	
+	 	 try{
+	 		 Thread.sleep(3000);
+	 	 }catch(InterruptedException e){
+	 		 e.printStackTrace();
+	 	 }
+	 	 SwingUtilities.invokeLater(new Runnable() {
+
+			  @Override
+			  public void run() {
+				  frame0.getLayeredPane().remove(label3);
+	 	 frame0.getLayeredPane().add(label4,new Integer(Integer.MIN_VALUE));
+	 	 frame0.setVisible(true);
+
+			  }
+		  
+	});
+	 	 	 try{
+	 		 Thread.sleep(3000);
+	 	 }catch(InterruptedException e){
+	 		 e.printStackTrace();
+	 	 }
+	 	 	 SwingUtilities.invokeLater(new Runnable() {
+
+	 			  @Override
+	 			  public void run() {
+	 				 frame0.getLayeredPane().remove(label4);
+	 	 frame0.getLayeredPane().add(label5,new Integer(Integer.MIN_VALUE));
+	 	 frame0.setVisible(true);
+	 			  }
+	 		  
+	 	 });
+	 	
+	 	 try{
+	 		 Thread.sleep(3000);
+	 	 }catch(InterruptedException e){
+	 		 e.printStackTrace();
+	 	 }
+	 	 SwingUtilities.invokeLater(new Runnable() {
+
+			  @Override
+			  public void run() {
+				 frame0.getLayeredPane().remove(label5);
+	 	         frame0.setVisible(true);
+			  }
+		  
+	 });
+	 	  initial();
+	  }
+	  
+	  };
+	  new Thread(runnable).start();
+     }
+	///////////////////////////////////write and read file
+	 public static void writeMode(String content){
+			try{
+				File write=new File("Version.txt");
+				FileWriter writer=new FileWriter(write);
+				writer.write(content);
+				writer.close();
+			}catch(IOException ex){
+				ex.printStackTrace();
+			}
+		}
+		
+		public static String readMode(){
+			String result="";
+			try{
+				File myFile=new File("Version.txt");
+				FileReader fileReader=new FileReader(myFile);
+				
+				BufferedReader reader=new BufferedReader(fileReader);
+				
+				String line=null;
+				while((line=reader.readLine())!=null){
+					result=line;
+				}
+				reader.close();
+			}catch(Exception ex){
+				ex.printStackTrace();
+			}
+			return result;
+				
+		}
+	public static void writeStages(String content){
+		try{
+			File write2=new File("Data.txt");
+			FileWriter writer=new FileWriter(write2);
+			writer.write(content);
+			writer.close();
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public static String readStages(){
+		String result="";
+		try{
+			File myFile=new File("Data.txt");
+			FileReader fileReader=new FileReader(myFile);
+			
+			BufferedReader reader=new BufferedReader(fileReader);
+			
+			String line=null;
+			while((line=reader.readLine())!=null){
+				result=line;
+			}
+			reader.close();
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return result;
+			
+	}
+	//////////////////////////////////////////////////////////////
+	////////////////////////////////////main function
+	///////////////////////////////////////////////////////////////
+	public static void main(String[] args){
+		  exit.setBackground(Color.ORANGE);
+		  firstframe.setTitle("Beibei¿÷ 2.0");
+          firstframe.setBounds(40, 40, width, height);
+          toppanel.setOpaque(false);
+          mainlabel.setBounds(0,0,width,height);
+          formercomic(firstframe); 
+        
+        
+	}
+	////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////main function
+	public static void initial(){
+		
+    	 //if you want to put something on the content pane(the top panel/surface)
+    	 firstframe.getLayeredPane().add(mainlabel,new Integer(Integer.MIN_VALUE));
+    	 firstframe.setVisible(true);
+    	 JButton newgameBU=new JButton();
+    	 newgameBU.setBackground(Color.ORANGE);
+    	 newgameBU.setIcon(newgameIcon);
+    	 newgameBU.addActionListener(
+    			 new ActionListener(){
+    				 public void actionPerformed(ActionEvent ex){
+    					 newGame();
+    				 }
+    			 }
+    			 );
+    	JButton continuegameBU=new JButton();
+    	continuegameBU.setBackground(Color.ORANGE);
+   	 continuegameBU.setIcon(continuegameIcon);
+   	 continuegameBU.addActionListener(
+    			 new ActionListener(){
+    				 public void actionPerformed(ActionEvent ex){
+    					File myFile=new File("Data.txt");
+    					if(myFile.exists()){
+    						stages=Integer.parseInt(readStages());
+    						choice=Integer.parseInt(readMode());
+    						continueGame();
+    						
+    					}
+    					
+    				 }
+    			 }
+    			 );
+   	 JButton exitgameBU=new JButton();
+		 exitgameBU.setBackground(Color.ORANGE);
+   	 exitgameBU.setIcon(exitgameIcon);
+   	 exitgameBU.addActionListener(
+    			 new ActionListener(){
+    				 public void actionPerformed(ActionEvent ex){
+    					System.exit(0);
+    					
+    				 }
+    			 }
+    			 );
+   	 
+   	 mainlabel.setLayout(null);
+   	 mainlabel.add(newgameBU);
+   	mainlabel.add(continuegameBU);
+   	mainlabel.add(exitgameBU);
+   	int width2=(newgameIcon.getIconWidth()*3)/2;
+   	int height2=(newgameIcon.getIconHeight())*2;
+   	newgameBU.setBounds(170, 80+height2*2, width2, height2);
+   	continuegameBU.setBounds(170, 100+height2*3, width2, height2);
+   	exitgameBU.setBounds(170,120+height2*4,width2, height2);
+     
+      firstframe.setVisible(true);
+      
+     
+		
+	} 
+	////////////////////////////////////////////////initail gui
+	////////////////////////////////////////////
+	///////////////////////////////////////////
+	public static void newGame(){
+		  mainlabel.removeAll();
+		  firstframe.getLayeredPane().remove(mainlabel);
+		  JPanel panel0=(JPanel)firstframe.getContentPane();
+	       panel0.setOpaque(false);
+		  stages=1;
+		  ////////////////////////////////////the first boundar
+		  firstframe.getLayeredPane().add(mainlabel,new Integer(Integer.MIN_VALUE));
+		  mainlabel.setVisible(true);
+		  firstframe.setVisible(true);
+		  try{
+			  Thread.sleep(500);
+		  }catch(InterruptedException e){
+			  e.printStackTrace();
+		  }
+		  String[] choices={"Classic","Standard"};
+		  choice=JOptionPane.showOptionDialog(mainlabel, "Which version do you want to choose?", "Version Choosing", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+		  //choice==0 means "Classic"   choice==1 means "Standard"
+		  continueGame();
+	}
+     public static void continueGame(){
+    	 
+    	 
+  	   mainlabel.removeAll();
+  		  mainlabel.setVisible(false);
+  		  firstframe.getLayeredPane().remove(mainlabel);
+  	 
+  		 
+   	  mainpanel.setLayout(null);  	  
+   	  toppanel.setOpaque(false);
+   	  mainpanel.setOpaque(false);
+   	  toppanel.add(mainpanel);
+   	  //we will add other components on the mainpanel
+      	  backg.setBounds(0,0,width,height);
+      	  firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+      	  
+      	  mainpanel.setLayout(null);
+      	  
+   	 
+   	  flowerpanel.setOpaque(false);
+      
+      	  
+      	  JPanel panel1=new JPanel();
+      	  panel1.setLayout(new GridLayout(4,1));
+         
+         Font fon=new Font("ÀŒÃÂ",1,30);
+  		  stage.setFont(fon);
+  		  stage.setText("Stages:"+String.valueOf(stages));
+  		  stage.setOpaque(false);
+  		  stage.setBorder(null);
+  		 
+  		  step.setFont(fon);
+  		  step.setText("Steps:"+String.valueOf(steps));
+  		  step.setBorder(null);
+  		  step.setOpaque(false);
+  		  
+  		  score.setFont(fon);
+  		  score.setText("Scores:"+String.valueOf(scores));
+  		  score.setBorder(null);
+  		  score.setOpaque(false);
+  		
+  		  target.setFont(fon);
+  		  target.setText("scores:"+String.valueOf(targets));
+  		  target.setOpaque(false);
+  		  target.setBorder(null);
+  		  panel1.add(stage);
+  		  panel1.add(target);
+  		  panel1.add(step);
+  		  panel1.add(score);
+  		  panel1.setOpaque(false);
+  		
+  		  JPanel panel2=new JPanel();
+  		  panel2.setOpaque(true);
+  		  
+  		  flowerpanel.add(flowerlabel1);
+  		
+  		  exit.setBackground(Color.orange);
+  		 
+  		  mainpanel.add(panel1);
+  		  mainpanel.add(panel2);
+  		  mainpanel.add(flowerpanel);
+  		  mainpanel.add(exit);
+  		  panel1.setBounds(60+width/2, 100+height/2, width/2, height/3);
+  		  flowerpanel.setBounds(0,100+height/2,width/2,height/2);
+  		  panel2.setBounds(0, 0, width, height/2);
+  		  exit.setBounds(width-150, height-150, 100, 60);
+  		  firstframe.setVisible(true);
+     
+    	     
+     }
+     
+     public static void startgame(JPanel panel2,JPanel flowerpanel,JButton exit){
+    	 if(choice==0){//GAme1
+    		 switch(stages){
+    		 case '1':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel1);
+    			 steps=10;
+    			 targets=20;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme1 game1=new GAme1(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game1.playGame1(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass1,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass1, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass1.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass1);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////initial
+    					  Pass1.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass1);
+        	    		 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 //////////////////////////////////////
+    		 case '2':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel2);
+    			 steps=9;
+    			 targets=22;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme1 game1=new GAme1(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game1.playGame1(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass2,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass2, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass2.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass2);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass2.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass2);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					  Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '3':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel3);
+    			 steps=8;
+    			 targets=24;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme1 game1=new GAme1(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game1.playGame1(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass3,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass3, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass3.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass3);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass3.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass3);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					  Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '4':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel4);
+    			 steps=7;
+    			 targets=26;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme1 game1=new GAme1(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game1.playGame1(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass4,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass4, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass4.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass4);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+ 	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass4.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass4);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					  Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '5':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel5);
+    			 steps=6;
+    			 targets=28;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 target.setText("scores:"+String.valueOf(targets));
+    			 GAme1 game1=new GAme1(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game1.playGame1(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass5,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass5, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass5.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass5);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass5.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass5);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '6':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel1);
+    			 steps=5;
+    			 targets=30;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme1 game1=new GAme1(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game1.playGame1(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass6,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 JOptionPane.showMessageDialog(Pass6,"Exit"); 
+    		    	//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass6.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass6);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 writeMode(String.valueOf(choice));
+    	    		 writeStages(String.valueOf(stages));
+    	    		 initial();
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 }
+    	 }//GAme1
+    	 ///////////////////////////////////////////////////
+    	 ////////////////////////////////////////////////
+    	 /////////////////////////////////////////////////
+    	 ////////////////////////////////////////////////
+    	 else{//GAme2
+    		 switch(stages){
+    		 case '1':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel1);
+    			 steps=10;
+    			 targets=20;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme2 game2=new GAme2(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game2.playGame2(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass1,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass1, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass1.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass1);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass1.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass1);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 //////////////////////////////////////
+    		 case '2':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel2);
+    			 steps=9;
+    			 targets=22;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme2 game2=new GAme2(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game2.playGame2(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass2,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass2, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass2.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass2);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass2.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass2);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					  Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '3':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel3);
+    			 steps=8;
+    			 targets=24;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme2 game2=new GAme2(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game2.playGame2(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass3,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass3, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass3.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass3);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass3.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass3);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					  Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '4':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel4);
+    			 steps=7;
+    			 targets=26;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme2 game2=new GAme2(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game2.playGame2(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass4,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass4, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass4.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass4);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass4.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass4);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					  Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '5':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel5);
+    			 steps=6;
+    			 targets=28;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme2 game2=new GAme2(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game2.playGame2(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass5,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Continue","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Pass5, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//continue
+    					 Pass5.setVisible(false);
+    	    		     firstframe.getLayeredPane().remove(Pass5);
+    	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+       	    		     firstframe.setVisible(true);
+ 	    		         mainpanel.setVisible(true);
+ 	    		         stages++;
+ 	    		         panel2.removeAll();
+        				 startgame(panel2,flowerpanel,exit);
+        				
+    				  }
+    				  else{//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass5.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass5);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  }
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 case '6':{
+    			 flowerpanel.removeAll();
+    			 flowerpanel.add(flowerlabel1);
+    			 steps=5;
+    			 targets=30;
+    			 stage.setText("Stages:"+String.valueOf(stages));
+    			 score.setText("Scores:"+String.valueOf(scores));
+    			 step.setText("Steps:"+String.valueOf(steps));
+    			 target.setText("Targets:"+String.valueOf(targets));
+    			 GAme2 game2=new GAme2(steps,targets,"begin");
+    			 panel2.removeAll();
+    			 String returnmessage=game2.playGame2(panel2, step, score,exit);
+    			 if(returnmessage.equals("win")){
+    			     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Pass6,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 JOptionPane.showMessageDialog(Pass6,"Exit"); 
+    		    	//exit
+    					  /////////////////////////////////////////////////mainlabel1
+    					  Pass6.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Pass6);
+     	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    				  
+    				 
+    			 }
+    			 else if(returnmessage.equals("dead")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    				 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Dead,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Dead, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Dead.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Dead);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Dead.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Dead);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    	 			 }
+    			 else if(returnmessage.equals("lose")){
+                     try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    		    	 backg.setVisible(false);
+    		    	 firstframe.getLayeredPane().remove(backg);
+    		    	 firstframe.getLayeredPane().add(Lose,new Integer(Integer.MIN_VALUE));
+    		    	 firstframe.setVisible(true);
+    		    	 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    		    	 String[] choices={"Again","Exit"};
+    				  int choice2=JOptionPane.showOptionDialog(Lose, "What do you want to do next?", "Next step", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+    				  if(choice2==0){//again
+    					 Lose.setVisible(false);
+     	    		     firstframe.getLayeredPane().remove(Lose);
+     	    		     firstframe.getLayeredPane().add(backg,new Integer(Integer.MIN_VALUE));
+        	    	     firstframe.setVisible(true);
+  	    		         mainpanel.setVisible(true);
+  	    		         panel2.removeAll();
+  	    		         startgame(panel2,flowerpanel,exit);
+    				  }
+    				 
+    				 else{//exit
+        					  /////////////////////////////////////////////////mainlabel1
+        					 Lose.setVisible(false);
+         	    		     firstframe.getLayeredPane().remove(Lose);
+         	    			 writeMode(String.valueOf(choice));
+            	    		 writeStages(String.valueOf(stages));
+            	    		 initial();
+        				  } 
+    			 }
+    			 else if(returnmessage.equals("exit")){
+    				 try{
+    		    		 Thread.sleep(800);
+    		    	 }catch(InterruptedException e){
+    		    		 e.printStackTrace();
+    		    	 }
+    				 mainpanel.setVisible(false);
+    			      //exit
+   					  /////////////////////////////////////////////////mainlabel1
+   					  backg.setVisible(false);
+    	    		  firstframe.getLayeredPane().remove(backg);
+    	    			 writeMode(String.valueOf(choice));
+        	    		 writeStages(String.valueOf(stages));
+        	    		 initial();
+    			 }
+    			 
+    			 break;
+    		 }
+    		 } 
+    	 }//GAme2
+     }
+}

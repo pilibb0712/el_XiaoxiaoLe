@@ -1,0 +1,111 @@
+package Sometesting;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Test {
+	 static JFrame aframe=new JFrame();
+	 static ImageIcon main=new ImageIcon("main.jpg");
+	 static JLabel mainlabel=new JLabel(main);
+	 static int width=main.getIconWidth();
+	 static int height=main.getIconHeight();
+	 static void formercomic(JFrame frame0){
+		 frame0.getLayeredPane().removeAll();
+    	 ImageIcon image1=new ImageIcon("c1.jpg"); 
+    	 ImageIcon image2=new ImageIcon("c2.jpg");
+    	 ImageIcon image3=new ImageIcon("c3.jpg"); 
+    	 ImageIcon image4=new ImageIcon("c4.jpg");
+    	 ImageIcon image5=new ImageIcon("c5.jpg"); 
+     	
+    	 int height=frame0.getHeight();
+    	 int width=frame0.getWidth();
+       	 JLabel label1=new JLabel(image1);
+       	 JLabel label2=new JLabel(image2);
+       	 JLabel label3=new JLabel(image3);
+      	 JLabel label4=new JLabel(image4);
+      	 JLabel label5=new JLabel(image5);
+    	 //It is strange that we use "/" rather than "\" to tell the path
+    	 label1.setBounds(0, 0,width,height);
+    	 label2.setBounds(0, 0,width,height);
+    	 label3.setBounds(0, 0,width,height);
+    	 label4.setBounds(0, 0,width,height);
+    	 label5.setBounds(0, 0,width,height);
+    	 frame0.setBounds(40, 40, width, height);
+    	
+    	 JPanel panel0=(JPanel)frame0.getContentPane();
+         panel0.setOpaque(false);
+    	 //if you want to put something on the content pane(the top panel/surface)
+    	 frame0.getLayeredPane().add(label1,new Integer(Integer.MIN_VALUE));
+    	 frame0.setVisible(true);
+    	 try{
+    		 Thread.sleep(3000);
+    	 }catch(InterruptedException e){
+    		 e.printStackTrace();
+    	 }
+    	 frame0.getLayeredPane().remove(label1);
+    	 frame0.getLayeredPane().add(label2,new Integer(Integer.MIN_VALUE));
+    	 frame0.setVisible(true);
+    	 try{
+    		 Thread.sleep(3000);
+    	 }catch(InterruptedException e){
+    		 e.printStackTrace();
+    	 }
+    	 frame0.getLayeredPane().remove(label2);
+    	 frame0.getLayeredPane().add(label3,new Integer(Integer.MIN_VALUE));
+    	 frame0.setVisible(true);
+    	 try{
+    		 Thread.sleep(3000);
+    	 }catch(InterruptedException e){
+    		 e.printStackTrace();
+    	 }
+    	 frame0.getLayeredPane().remove(label3);
+    	 frame0.getLayeredPane().add(label4,new Integer(Integer.MIN_VALUE));
+    	 frame0.setVisible(true);
+    	 try{
+    		 Thread.sleep(3000);
+    	 }catch(InterruptedException e){
+    		 e.printStackTrace();
+    	 }
+    	 frame0.getLayeredPane().remove(label4);
+    	 frame0.getLayeredPane().add(label5,new Integer(Integer.MIN_VALUE));
+    	 frame0.setVisible(true);
+    	 try{
+    		 Thread.sleep(3000);
+    	 }catch(InterruptedException e){
+    		 e.printStackTrace();
+    	 }
+    	 frame0.getLayeredPane().remove(label5);
+    	 frame0.setVisible(true);
+     }
+  public static void main(String[] args){
+	   aframe.setBounds(40,40,width,height);
+	   mainlabel.setBounds(40, 40, width, height);
+	   JPanel panel0=(JPanel)aframe.getContentPane();
+	   panel0.setOpaque(false);
+	   aframe.getLayeredPane().add(mainlabel,new Integer(Integer.MIN_VALUE));
+	   JButton test=new JButton("new game");
+	   test.setBounds(100, 100, width/4, height/4);
+	   test.addActionListener(
+			   new ActionListener(){
+				   public void actionPerformed(ActionEvent ex){
+					   
+					   
+				   }
+			   }
+			   );
+	   mainlabel.add(test);
+	  aframe.setVisible(true);
+  }
+  public static void newgame(){
+	  mainlabel.removeAll();
+	  aframe.getLayeredPane().removeAll();
+	  formercomic(aframe);
+	  System.out.println("skjfnwir");
+  }
+}
